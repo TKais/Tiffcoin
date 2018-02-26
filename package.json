@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/TKais/Tiffcoin/issues"
   },
-  "homepage": "https://github.com/TKais/Tiffcoin#readme"
+  "homepage": "https://github.com/TKais/Tiffcoin#readme",
+  "devDependencies": {
+    "nodemon": "^1.15.1"
+  }
 }
