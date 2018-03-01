@@ -5,6 +5,11 @@ class Block {
 		this.previousHash = previousHash;
 		this.data = data;
 	}
+
+	static createGenesisBlock() {
+		var currentTime = new Date();
+		return new this(currentTime, 'f1r57-h45h', null, []);
+	}
 }
 
 module.exports = Block;
