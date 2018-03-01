@@ -16,11 +16,12 @@ class Block {
 	static mineBlock(lastBlock, data) {
 	    const timestamp = Date.now();
 	    const lastHash = lastBlock.hash;
+	    const hash = Block.hash(timestamp, lastHash, data);
 
 	    return new this(timestamp, hash, lastHash, data);
 	}
 
-	generateHash(timestamp, lastHash, data) {
+	static generateHash(timestamp, lastHash, data) {
 		SHA256(`${timestamp}${lastHash}${data}`).toString();
 	}
 }
