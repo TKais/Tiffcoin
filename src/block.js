@@ -7,8 +7,15 @@ class Block {
 	}
 
 	static createGenesisBlock() {
-		var currentTime = new Date();
+		const currentTime = Date.now();
 		return new this(currentTime, 'f1r57-h45h', null, []);
+	}
+
+	static mineBlock(lastBlock, data) {
+	    const timestamp = Date.now();
+	    const lastHash = lastBlock.hash;
+
+	    return new this(timestamp, hash, lastHash, data);
 	}
 }
 
