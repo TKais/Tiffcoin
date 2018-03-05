@@ -4,7 +4,7 @@
   "description": "A blockchain and cryptocurrency project implemented in Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll"
   },
   "repository": {
     "type": "git",
