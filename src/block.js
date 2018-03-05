@@ -13,10 +13,10 @@ class Block {
 		return new this(currentTime, 'f1r57-h45h', null, []);
 	}
 
-	static mineBlock(lastBlock, data) {
+	static createMineBlock(lastBlock, data) {
 	    const timestamp = Date.now();
 	    const lastHash = lastBlock.hash;
-	    const hash = Block.hash(timestamp, lastHash, data);
+	    const hash = Block.generateHash(timestamp, lastHash, data);
 
 	    return new this(timestamp, hash, lastHash, data);
 	}
