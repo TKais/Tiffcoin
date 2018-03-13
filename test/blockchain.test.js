@@ -25,4 +25,10 @@ describe('Blockchain', () => {
 
 		expect(firstBlockchain.chainIsValid(secondBlockchain.chain)).toBe(true);
 	});
+
+	it('invalidates a chain with an invalid genesis block', () => {
+		secondBlockchain.chain[0].data = 'invalid';
+
+		expect(firstBlockchain.chainIsValid(secondBlockchain.chain)).toBe(false);
+	});
 })
