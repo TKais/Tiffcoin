@@ -21,7 +21,7 @@ describe('Blockchain', () => {
 	});
 
 	it('validates a valid chain', () => {
-		secondBlockchain.addBlock('foo');
+		secondBlockchain.addBlock('example');
 
 		expect(firstBlockchain.isValidChain(secondBlockchain.chain)).toBe(true);
 	});
