@@ -30,6 +30,18 @@ class Blockchain {
 
 		return true;
 	}
+
+	replaceChain(replacementChain) {
+		if(replacementChain.length <= this.chain) {
+			throw new Error('Replacement chain must be longer than the current chain.');
+			return;
+		} else if(!this.isValidChain(replacementChain)) {
+			throw new Error('Replacement chain is invalid.');
+			return;
+		}
+
+		this.chain = replacementChain;
+	}
 }
 
 module.exports = Blockchain;
