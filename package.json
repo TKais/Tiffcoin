@@ -4,7 +4,7 @@
   "description": "A blockchain and cryptocurrency project implemented in Node.js",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./index.js",
+    "dev-start": "nodemon ./index.js",
     "start": "node ./index.js",
     "test": "jest --watchAll"
   },
