@@ -12,4 +12,10 @@ class P2PServer {
 		this.sockets.push(socket);
 		console.log('Added new, connected socket');
 	}
+
+	runServer() {
+		const server = new Websocket.Server({port: P2P_PORT});
+		server.on('connection', (socket) => { this.connectSocket(socket) });
+		console.log(`Server running on port ${P2P_PORT}`);
+	}
 }
