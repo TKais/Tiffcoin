@@ -7,4 +7,9 @@ class P2PServer {
 		this.blockchain = blockchain;
 		this.sockets = [];
 	}
+
+	connectSocket(socket) {
+		this.sockets.push(socket);
+		console.log('Added new, connected socket');
+	}
 }
