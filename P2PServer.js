@@ -11,6 +11,18 @@ class P2PServer {
 	connectSocket(socket) {
 		this.sockets.push(socket);
 		console.log('Added new, connected socket');
+
+		this.connectToPeers();
+	}
+
+	connectToPeers() {
+		peers.forEach( (peer) => {
+			const socket = new Websocket(peer);
+
+			socket.on('open', () => {
+				this.connectSocket(socket);
+			});
+		});
 	}
 
 	runServer() {
