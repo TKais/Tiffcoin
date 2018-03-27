@@ -2,9 +2,11 @@ const express = require('express');
 const Blockchain = require('./src/blockchain');
 const bodyParser = require('body-parser');
 const PORT = process.env.port || 8000;
+const P2PServer = require('./P2PServer');
 
 const app = express();
 const chainInstance = new Blockchain();
+const pServer = new P2PServer(chainInstance);
 
 app.use(bodyParser.json());
 
