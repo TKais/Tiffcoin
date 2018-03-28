@@ -13,6 +13,7 @@ class P2PServer {
 		console.log('Added new, connected socket');
 
 		this.handleMessages(socket);
+		socket.send();
 	}
 
 	connectToPeers() {
