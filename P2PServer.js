@@ -25,6 +25,12 @@ class P2PServer {
 		});
 	}
 
+	handleMessages(socket) {
+		socket.on('message', (message) => {
+			const data = JSON.parse(message);
+		});
+	}
+
 	runServer() {
 		const server = new Websocket.Server({port: P2P_PORT});
 		server.on('connection', (socket) => { this.connectSocket(socket) });
