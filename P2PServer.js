@@ -13,7 +13,7 @@ class P2PServer {
 		console.log('Added new, connected socket');
 
 		this.handleMessages(socket);
-		socket.send();
+		socket.send(JSON.stringify(this.blockchain.chain));
 	}
 
 	connectToPeers() {
@@ -38,3 +38,5 @@ class P2PServer {
 		console.log(`Server running on port ${P2P_PORT}`);
 	}
 }
+
+module.exports = P2PServer;
