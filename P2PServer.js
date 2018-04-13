@@ -29,6 +29,7 @@ class P2PServer {
 	handleMessages(socket) {
 		socket.on('message', (message) => {
 			const data = JSON.parse(message);
+			this.blockchain.replaceChain(data);
 		});
 	}
 
