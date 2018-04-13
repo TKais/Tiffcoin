@@ -33,6 +33,10 @@ class P2PServer {
 		});
 	}
 
+	sendChain(socket) {
+		socket.send(JSON.stringify(this.blockchain.chain));
+	}
+
 	runServer() {
 		const server = new Websocket.Server({port: P2P_PORT});
 		server.on('connection', (socket) => { this.connectSocket(socket) });
