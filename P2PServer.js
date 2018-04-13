@@ -13,7 +13,7 @@ class P2PServer {
 		console.log('Added new, connected socket');
 
 		this.handleMessages(socket);
-		socket.send(JSON.stringify(this.blockchain.chain));
+		this.sendChain(socket);
 	}
 
 	connectToPeers() {
