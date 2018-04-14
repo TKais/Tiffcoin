@@ -27,8 +27,8 @@ class Block {
 	}
 
 	static blockHash(block) {
-		const { timestamp, previousHash, data } = block;
-		return Block.generateHash(timestamp, previousHash, data);
+		const { timestamp, previousHash, data, nonce } = block;
+		return Block.generateHash(timestamp, previousHash, data, nonce);
 	}
 }
 
