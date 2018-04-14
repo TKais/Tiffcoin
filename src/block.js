@@ -1,11 +1,12 @@
 const SHA256 = require('crypto-js/sha256');
 
 class Block {
-	constructor(timestamp, hash, previousHash, data) {
+	constructor(timestamp, hash, previousHash, data, nonce) {
 		this.timestamp = timestamp;
 		this.hash = hash;
 		this.previousHash = previousHash;
 		this.data = data;
+		this.nonce = nonce;
 	}
 
 	static createGenesisBlock() {
