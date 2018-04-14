@@ -37,6 +37,10 @@ class P2PServer {
 		socket.send(JSON.stringify(this.blockchain.chain));
 	}
 
+	syncChains() {
+		this.sockets.forEach( (socket) => this.sendChain(socket));
+	}
+
 	runServer() {
 		const server = new Websocket.Server({port: P2P_PORT});
 		server.on('connection', (socket) => { this.connectSocket(socket) });
