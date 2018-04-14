@@ -16,6 +16,7 @@ app.get('/blocks', (request, response) => {
 
 app.post('/mine', (request, response) => {
 	const block = chainInstance.addBlock(request.body.data);
+	pServer.syncChains();
 	response.redirect('/blocks');
 });
 
