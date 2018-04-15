@@ -11,13 +11,19 @@ class Block {
 
 	static createGenesisBlock() {
 		const currentTime = Date.now();
-		return new this(currentTime, 'f1r57-h45h', null, []);
+		return new this(currentTime, 'f1r57-h45h', null, [], 0);
 	}
 
 	static createMineBlock(lastBlock, data) {
 	    const timestamp = Date.now();
 	    const lastHash = lastBlock.hash;
-	    const hash = Block.generateHash(timestamp, lastHash, data);
+	    let nonce = 0;
+	    let hash;
+
+	    do {
+	    	nonce++;
+		    hash = Block.generateHash(timestamp, lastHash, data, nonce);
+	    } while();
 
 	    return new this(timestamp, hash, lastHash, data);
 	}
