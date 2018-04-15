@@ -15,17 +15,18 @@ class Block {
 	}
 
 	static createMineBlock(lastBlock, data) {
-	    const timestamp = Date.now();
 	    const lastHash = lastBlock.hash;
+	    let timestamp;
 	    let nonce = 0;
 	    let hash;
 
 	    do {
+	    	timestamp = Date.now();
 	    	nonce++;
 		    hash = Block.generateHash(timestamp, lastHash, data, nonce);
 	    } while();
 
-	    return new this(timestamp, hash, lastHash, data);
+	    return new this(timestamp, hash, lastHash, data, nonce);
 	}
 
 	static generateHash(timestamp, lastHash, data) {
