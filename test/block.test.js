@@ -1,4 +1,5 @@
 const Block = require('../src/block');
+const DIFFICULTY = require('../src/utilities/constants').DIFFICULTY;
 
 describe('Block', () => {
 	let data, lastBlock, block;
