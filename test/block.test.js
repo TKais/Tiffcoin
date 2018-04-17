@@ -16,4 +16,8 @@ describe('Block', () => {
 	it('sets the `lastHash` to match the hash of the last block', () => {
 		expect(block.previousHash).toEqual(lastBlock.hash);
 	});
+
+	it('creates a hash that is identical to the difficulty setting', () => {
+		expect(block.hash.substring(0, DIFFICULTY)).toEqual('0'.repeat(DIFFICULTY));
+	});
 });
