@@ -1,5 +1,5 @@
 const SHA256 = require('crypto-js/sha256');
-const DIFFICULTY = 4;
+const DIFFICULTY = require('./utilities/constants').DIFFICULTY;
 
 class Block {
 	constructor(timestamp, hash, previousHash, data, nonce) {
@@ -30,7 +30,7 @@ class Block {
 	    return new this(timestamp, hash, lastHash, data, nonce);
 	}
 
-	static generateHash(timestamp, lastHash, data) {
+	static generateHash(timestamp, lastHash, data, nonce) {
 		SHA256(`${timestamp}${lastHash}${data}${nonce}`).toString();
 	}
 
