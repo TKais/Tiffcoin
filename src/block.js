@@ -13,7 +13,7 @@ class Block {
 
 	static createGenesisBlock() {
 		const currentTime = Date.now();
-		return new this(currentTime, 'f1r57-h45h', null, [], 0);
+		return new this(currentTime, 'f1r57-h45h', null, [], 0, difficulty);
 	}
 
 	static createMineBlock(lastBlock, data) {
@@ -31,13 +31,13 @@ class Block {
 	    return new this(timestamp, hash, lastHash, data, nonce);
 	}
 
-	static generateHash(timestamp, lastHash, data, nonce) {
+	static generateHash(timestamp, lastHash, data, nonce, difficulty) {
 		SHA256(`${timestamp}${lastHash}${data}${nonce}${difficulty}`).toString();
 	}
 
 	static blockHash(block) {
 		const { timestamp, previousHash, data, nonce } = block;
-		return Block.generateHash(timestamp, previousHash, data, nonce);
+		return Block.generateHash(timestamp, previousHash, data, nonce, difficulty);
 	}
 }
 
