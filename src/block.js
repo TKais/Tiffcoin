@@ -2,12 +2,13 @@ const SHA256 = require('crypto-js/sha256');
 const DIFFICULTY = require('./utilities/constants').DIFFICULTY;
 
 class Block {
-	constructor(timestamp, hash, previousHash, data, nonce) {
+	constructor(timestamp, hash, previousHash, data, nonce, difficulty) {
 		this.timestamp = timestamp;
 		this.hash = hash;
 		this.previousHash = previousHash;
 		this.data = data;
 		this.nonce = nonce;
+		this.difficulty = difficulty || DIFFICULTY;
 	}
 
 	static createGenesisBlock() {
