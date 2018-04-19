@@ -26,7 +26,7 @@ class Block {
 	    	timestamp = Date.now();
 	    	nonce++;
 		    hash = Block.generateHash(timestamp, lastHash, data, nonce);
-	    } while(hash.substring(0,DIFFICULTY) !== '0'.repeat(DIFFICULTY));
+	    } while(hash.substring(0,difficulty) !== '0'.repeat(difficulty));
 
 	    return new this(timestamp, hash, lastHash, data, nonce);
 	}
