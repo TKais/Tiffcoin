@@ -25,6 +25,7 @@ class Block {
 	    do {
 	    	timestamp = Date.now();
 	    	nonce++;
+	    	difficulty = Block.adjustDifficulty(lastBlock, timestamp);
 		    hash = Block.generateHash(timestamp, lastHash, data, nonce, difficulty);
 	    } while(hash.substring(0,difficulty) !== '0'.repeat(difficulty));
 
@@ -38,6 +39,10 @@ class Block {
 	static blockHash(block) {
 		const { timestamp, previousHash, data, nonce } = block;
 		return Block.generateHash(timestamp, previousHash, data, nonce, difficulty);
+	}
+
+	static adjustDifficulty(lastBlock, currentTime) {
+		// placeholder
 	}
 }
 
