@@ -1,5 +1,5 @@
 const SHA256 = require('crypto-js/sha256');
-const DIFFICULTY = require('./utilities/constants').DIFFICULTY;
+const { DIFFICULTY, MINE_RATE } = require('./utilities/constants');
 
 class Block {
 	constructor(timestamp, hash, previousHash, data, nonce, difficulty) {
@@ -13,7 +13,7 @@ class Block {
 
 	static createGenesisBlock() {
 		const currentTime = Date.now();
-		return new this(currentTime, 'f1r57-h45h', null, [], 0, difficulty);
+		return new this(currentTime, 'f1r57-h45h', null, [], 0, DIFFICULTY);
 	}
 
 	static createMineBlock(lastBlock, data) {
@@ -42,7 +42,10 @@ class Block {
 	}
 
 	static adjustDifficulty(lastBlock, currentTime) {
-		// placeholder
+		let { difficulty } = lastBlock;
+
+		difficulty = lastBlock.timestamp + MINE_RATE > currentTime ? difficulty + 1 : difficulty - 1;
+		return difficulty;
 	}
 }
 
