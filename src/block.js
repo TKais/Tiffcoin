@@ -20,6 +20,7 @@ class Block {
 	    const lastHash = lastBlock.hash;
 	    let timestamp;
 	    let nonce = 0;
+	    let { difficulty } = lastBlock;
 	    let hash;
 
 	    do {
