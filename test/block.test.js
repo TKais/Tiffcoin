@@ -9,7 +9,16 @@ describe('Block', () => {
 		block = Block.createMineBlock(lastBlock, data);
 	});
 
+	it('expects the genesis block to exist', () => {
+		expect(lastBlock).toBeDefined();
+	});
+
+	it('expects the mine block to exist', () => {
+		expect(block).toBeDefined();
+	});
+
 	it('sets the `data` to match the input', () => {
+		console.log(block);
 		expect(block.data).toEqual(data);
 	});
 
