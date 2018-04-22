@@ -34,7 +34,7 @@ class Block {
 	}
 
 	static generateHash(timestamp, lastHash, data, nonce, difficulty) {
-		SHA256(`${timestamp}${lastHash}${data}${nonce}${difficulty}`).toString();
+		return SHA256(`${timestamp}${lastHash}${data}${nonce}${difficulty}`).toString();
 	}
 
 	static blockHash(block) {
