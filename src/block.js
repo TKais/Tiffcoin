@@ -30,7 +30,7 @@ class Block {
 		    hash = Block.generateHash(timestamp, lastHash, data, nonce, difficulty);
 	    } while(hash.substring(0,difficulty) !== '0'.repeat(difficulty));
 
-	    return new this(timestamp, hash, lastHash, data, nonce);
+	    return new this(timestamp, hash, lastHash, data, nonce, difficulty);
 	}
 
 	static generateHash(timestamp, lastHash, data, nonce, difficulty) {
