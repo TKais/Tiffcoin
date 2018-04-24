@@ -14,7 +14,7 @@ class Blockchain {
 	}
 
 	isValidChain(chain) {
-		if(JSON.stringify(chain[0]) !== JSON.stringify(Block.createGenesisBlock())) {
+		if((chain[0].hash !== Block.createGenesisBlock().hash) || (JSON.stringify(chain[0].data) !== JSON.stringify(Block.createGenesisBlock().data))) {
 			return false;
 		}
 
