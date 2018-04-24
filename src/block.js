@@ -38,7 +38,7 @@ class Block {
 	}
 
 	static blockHash(block) {
-		const { timestamp, previousHash, data, nonce } = block;
+		const { timestamp, previousHash, data, nonce, difficulty } = block;
 		return Block.generateHash(timestamp, previousHash, data, nonce, difficulty);
 	}
 
