@@ -2,11 +2,12 @@ const Block = require('../src/block');
 const DIFFICULTY = require('../src/utilities/constants').DIFFICULTY;
 
 describe('Block', () => {
-	let data, lastBlock, block;
+	let data, lastBlock, block, blockDifficulty;
 	beforeEach(() => {
 		data = 'example';
 		lastBlock = Block.createGenesisBlock();
 		block = Block.createMineBlock(lastBlock, data);
+		blockDifficulty = block.difficulty ? block.difficulty : DIFFICULTY;
 	});
 
 	it('expects the genesis block to exist', () => {
@@ -26,6 +27,6 @@ describe('Block', () => {
 	});
 
 	it('creates a hash that is identical to the difficulty setting', () => {
-		expect(block.hash.substring(0, (block.difficulty || DIFFICULTY))).toEqual('0'.repeat(block.difficulty || DIFFICULTY));
+		expect(block.hash.substring(0, blockDifficulty)).toEqual('0'.repeat(blockDifficulty));
 	});
 });
