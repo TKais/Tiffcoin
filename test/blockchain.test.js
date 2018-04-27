@@ -10,6 +10,10 @@ describe('Blockchain', () => {
 		secondBlockchain = new Blockchain();
 	});
 
+	it('expects the first blockchain instance to exist', () => {
+		expect(firstBlockchain).toBeDefined();
+	});
+
 	it('starts with genesis block', () => {
 		expect(firstBlockchain.chain[0].hash).toEqual('f1r57-h45h');
 	});
