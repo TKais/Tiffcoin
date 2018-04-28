@@ -22,8 +22,8 @@ describe('Blockchain', () => {
 		expect(firstBlockchain.chain[0].hash).toEqual('f1r57-h45h');
 	});
 
-	it('starts with genesis block', () => {
-		expect(firstBlockchain.chain[0].hash).toEqual('f1r57-h45h');
+	it('expects the second blockchain to start with the genesis block', () => {
+		expect(secondBlockchain.chain[0].hash).toEqual('f1r57-h45h');
 	});
 
 	it('adds a new block', () => {
