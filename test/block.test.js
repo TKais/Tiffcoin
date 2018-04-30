@@ -7,7 +7,7 @@ describe('Block', () => {
 		data = 'example';
 		lastBlock = Block.createGenesisBlock();
 		block = Block.createMineBlock(lastBlock, data);
-		blockDifficulty = block.difficulty ? block.difficulty : DIFFICULTY;
+		blockDifficulty = block.difficulty || DIFFICULTY;
 	});
 
 	it('expects the genesis block to exist', () => {
