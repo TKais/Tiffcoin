@@ -29,4 +29,8 @@ describe('Block', () => {
 	it('creates a hash that is identical to the difficulty setting', () => {
 		expect(block.hash.substring(0, blockDifficulty)).toEqual('0'.repeat(blockDifficulty));
 	});
+
+	it('decreases the difficulty if a block"s mine rate is slow', () => {
+		expect(Block.adjustDifficulty(block, block.timestamp+36000)).toEqual(block.difficulty - 1);
+	});
 });
