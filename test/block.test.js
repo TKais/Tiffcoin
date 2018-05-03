@@ -33,4 +33,8 @@ describe('Block', () => {
 	it('decreases the difficulty if a block"s mine rate is slow', () => {
 		expect(Block.adjustDifficulty(block, block.timestamp+36000)).toEqual(block.difficulty - 1);
 	});
+
+	it('increases the difficulty if a block"s mine rate is quick', () => {
+		expect(Block.adjustDifficulty(block, block.timestamp+1)).toEqual(block.difficulty + 1);
+	});
 });
