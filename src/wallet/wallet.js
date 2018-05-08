@@ -5,3 +5,5 @@ class Wallet {
 		this.pair = null;
 	}
 }
+
+module.exports = Wallet;
