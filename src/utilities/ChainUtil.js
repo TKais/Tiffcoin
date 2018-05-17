@@ -6,3 +6,5 @@ class ChainUtil {
 		return ecInstance.genKeyPair();
 	}
 }
+
+module.exports = ChainUtil;
