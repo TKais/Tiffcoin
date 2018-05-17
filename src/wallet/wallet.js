@@ -1,8 +1,10 @@
+const ChainUtil = require('../utilities/ChainUtil');
+
 class Wallet {
 	constructor() {
 		this.balance = 0;
-		this.publicKey = null;
-		this.pair = null;
+		this.pair = ChainUtil.generatePair();
+		this.publicKey = this.pair.getPublic().encode('hex');
 	}
 }
 
