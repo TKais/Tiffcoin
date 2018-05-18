@@ -6,6 +6,10 @@ class ChainUtil {
 	static generatePair() {
 		return ecInstance.genKeyPair();
 	}
+
+	static id() {
+		return uuidV1();
+	}
 }
 
 module.exports = ChainUtil;
