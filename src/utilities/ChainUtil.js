@@ -1,6 +1,6 @@
 const EC = require('elliptic').ec;
 const ecInstance = new EC('secp256k1');
-const uuidV1 = require('uuid/v1');
+const uuidv1 = require('uuid/v1');
 
 class ChainUtil {
 	static generatePair() {
@@ -8,7 +8,7 @@ class ChainUtil {
 	}
 
 	static id() {
-		return uuidV1();
+		return uuidv1();
 	}
 }
 
